@@ -1,0 +1,23 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.container{
+    @include container-configs;
+    padding: 0 10rem;
+}
+
+@include desktop-size(){
+
+    .container{
+        padding: 0 5rem;
+    }
+
+}
+
+@include mobile-size(){
+
+    .container{
+        padding: 0 2rem;
+    }
+    
+}
