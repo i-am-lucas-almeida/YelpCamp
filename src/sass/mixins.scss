@@ -1,0 +1,32 @@
+@import './variables.scss';
+
+@mixin container-configs {
+    margin: 0 auto;
+    max-width: 100%;
+    width: 1440px;
+}
+
+@mixin button-style {
+    background-color: $black;
+    color: $white;
+    font-family: inherit;
+    font-size: 1.4rem;
+    font-weight: 600;
+    border: 1.5px solid $black;
+    border-radius: .5rem;
+    padding: 1.2rem 1.5rem;
+    cursor: pointer;
+    transition: .3s;
+}
+
+@mixin desktop-size() {
+    @media(max-width: 1000px) {
+        @content;
+    }
+}
+
+@mixin mobile-size() {
+    @media(max-width: 500px) {
+        @content;
+    }
+}
