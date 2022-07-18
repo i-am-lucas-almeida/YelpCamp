@@ -1,0 +1,116 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.container{
+    @include container-configs;
+    height: 100vh;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: hidden;
+
+    .navbar{
+        display: none;
+    }
+
+    @include desktop-size(){
+
+        display: grid;
+        height: 100%;
+
+        .navbar{
+            display: block;
+            width: 100%;
+            padding: 2rem;
+        }
+
+    }
+}
+
+.container__presentation{
+    width: 60%;
+    padding: 3rem 0;
+
+    .container__presentation_content{
+        margin: 0 auto;
+        max-width: 100%;
+        width: 50rem;
+
+        div{
+            margin-bottom: 5rem;
+        }
+    }
+
+    h1{
+        margin-bottom: 1rem;
+        font-size: 5rem;
+        font-weight: 700;
+    }
+
+    p{
+        color: $gray;
+        font-size: 1.5rem;
+        line-height: 2.5rem;
+    }
+
+    ul{
+        margin: 2rem 0;
+
+        li{
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+
+            img{
+                margin-right: 1rem;
+            }
+        }
+    }
+
+    .partners{
+        display: flex;
+        align-items: center;
+    }
+
+    @include desktop-size() {
+
+        width: 100%;
+        padding: 3rem 2rem;
+        order: 2;
+
+        .container__presentation_content{
+            width: 100%;
+
+            div{
+                display: none;
+            }
+        }
+
+    }
+
+    @include mobile-size() {
+
+        h1{
+            font-size: 3rem;
+        }
+
+    }
+}
+
+.container__image{
+    width: 40%;
+    height: 100%;
+    background-image: url(../../assets/Hero-image-desktop.jpg);
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+
+    @include desktop-size() {
+
+        width: 100%;
+        height: 30rem;
+        background-image: url(../../assets/Hero-image-tablet.jpg);
+        order: 1;
+
+    }
+}
