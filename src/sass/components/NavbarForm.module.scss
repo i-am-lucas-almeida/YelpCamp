@@ -1,0 +1,29 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.navbar{
+    margin-bottom: 5rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 3rem 0;
+
+    a>p{
+        color: $gray;
+        
+        span{
+            text-decoration: underline;
+        }
+
+        &:hover>span{
+            text-decoration: none;
+        }
+        
+    }
+
+    @include tablet-size() {
+
+        margin-bottom: 2rem;
+
+    }
+}
