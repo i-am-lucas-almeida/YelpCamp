@@ -1,0 +1,134 @@
+@import '../variables.scss';
+@import '../mixins.scss';
+
+.container{
+    @include container-configs;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    overflow: hidden;
+
+    .container__content{
+        max-width: 100%;
+        width: 45rem;
+        margin-left: 10rem;
+        padding-bottom: 5rem;
+
+        .container__title{
+            margin-bottom: 5rem;
+            font-size: 3.5rem;
+            font-weight: 700;
+        }
+
+        .container__form {
+
+            fieldset{
+
+                border: none;
+                margin-bottom: 2rem;
+                position: relative;
+
+                small{
+                    position: absolute;
+                    right: 0;
+                    bottom: -1.7rem;
+                    color: $red;
+                    font-weight: 500;
+                }
+
+                label{
+                    font-size: 1.4rem;
+                    font-weight: 600;
+                }
+    
+                input{
+                    margin-top: 1rem;
+                    background-color: $soft-gray;
+                    border: none;
+                    border: 1.5px solid transparent;
+                    border-radius: .5rem;
+                    padding: 1.5rem;
+                    width: 100%;
+                    outline: none;
+                    color: inherit;
+                    font-family: inherit;
+                    font-size: 1.4rem;
+                    caret-color: $red;
+    
+                    &:focus{
+                        border-color: $gray;
+                    }
+                }
+            }
+
+            .container__form_button{
+                @include button-style;
+                width: 100%;
+                margin: 2rem 0;
+            }
+
+            .error{
+                border-color: $red !important;
+            }
+
+            .error::placeholder{
+                color: $red !important;
+            }
+        }
+
+        .container__answer{
+            a{
+                color: $blue;
+                font-weight: 600;
+                text-decoration: underline;
+
+                &:hover{
+                    text-decoration: none;
+                }
+            }
+        }
+    }
+
+    @media(max-width: 1050px){
+
+        .container__content{
+            margin-left: 5rem;
+        }
+
+    }
+
+    @media(max-width: 950px) {
+
+        flex-direction: column;
+        padding: 0 15rem;
+        margin-bottom: 3rem;
+
+        .container__content{
+            width: 100%;
+            margin-left: 0;
+        }
+
+    }
+
+    @include tablet-size(){
+
+        padding: 0 10rem;
+
+        .container__content{
+            width: 100%;
+        }
+
+    }
+
+    @media(max-width: 600px) {
+
+        padding: 0 5rem;
+
+    }
+
+    @include mobile-size() {
+
+        padding: 0 2rem;
+
+    }
+}
