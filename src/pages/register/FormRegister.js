@@ -2,7 +2,11 @@ import styles from "../../sass/pages/FormSection.module.scss";
 
 import { useState } from "react";
 
+import { useAuthentication } from "../../hooks/useAuthentication";
+
 const FormRegister = () => {
+
+    const { createUser, error: authError, loading } = useAuthentication();
 
     const initialValues = {
         email: "",
@@ -69,7 +73,7 @@ const FormRegister = () => {
 
     const errors = validate();
 
-    function onSubmit(e) {
+    async function onSubmit(e) {
 
         e.preventDefault();
 
@@ -77,8 +81,11 @@ const FormRegister = () => {
             (!errors.username) &&
             (!errors.password)) {
 
-            console.log(formData);
-            setFormData(initialValues);
+            const res = await createUser(formData);
+
+            console.log(res);
+
+            //setFormData(initialValues);
 
         }
 
@@ -154,11 +161,19 @@ const FormRegister = () => {
 
             </fieldset>
 
-            <button
+            {!loading && <button
                 type="submit"
                 className={styles.container__form_button}>
                 Criar uma conta
-            </button>
+            </button>}
+
+            {loading && <button
+                type="submit"
+                className={styles.container__form_button} disabled>
+                Aguarde...
+            </button>}
+
+            <p>{authError && authError}</p>
 
         </form >
 
