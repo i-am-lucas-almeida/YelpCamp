@@ -32,7 +32,7 @@
                     position: absolute;
                     right: 0;
                     bottom: -1.7rem;
-                    color: $red;
+                    color: $soft-red;
                     font-weight: 500;
                 }
 
@@ -53,7 +53,7 @@
                     color: inherit;
                     font-family: inherit;
                     font-size: 1.4rem;
-                    caret-color: $red;
+                    caret-color: $soft-red;
     
                     &:focus{
                         border-color: $gray;
@@ -68,11 +68,11 @@
             }
 
             .error{
-                border-color: $red !important;
+                border-color: $soft-red !important;
             }
 
             .error::placeholder{
-                color: $red !important;
+                color: $soft-red !important;
             }
         }
 
