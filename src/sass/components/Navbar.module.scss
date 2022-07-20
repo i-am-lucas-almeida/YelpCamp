@@ -7,8 +7,18 @@
     align-items: center;
     justify-content: space-between;
 
-    div{
+    .navbar__auth{
         display: flex;
         align-items: center;
+
+        .navbar__auth_login{
+            color: $gray;
+            margin-right: 2.5rem;
+
+            &:hover{
+                text-decoration: underline;
+            }
+        }
     }
+
 }
