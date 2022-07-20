@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import { BrowserRouter as Router, Routes, Route, Navigate } from "react-router-dom";
 import { onAuthStateChanged } from "firebase/auth";
 import { useState, useEffect } from "react";
 
@@ -51,9 +51,18 @@ const App = () => {
 
           <Route path="/" element={<LandingPage />} />
           <Route path="/home" element={<Home />} />
-          <Route path="/signup" element={<Register />} />
-          <Route path="/login" element={<Login />} />
-          <Route path="/new-camp" element={<RegisterCamp />} />
+          <Route
+            path="/signup"
+            element={user ? <Navigate to="/" /> : <Register />}
+          />
+          <Route
+            path="/login"
+            element={user ? <Navigate to="/" /> : <Login />}
+          />
+          <Route
+            path="/new-camp"
+            element={user ? <RegisterCamp /> : <Navigate to="/login" />}
+          />
 
         </Routes>
 
