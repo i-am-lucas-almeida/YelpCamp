@@ -44,7 +44,7 @@ const Search = () => {
                 </form>
 
                 <p>
-                    <Link to="/">
+                    <Link to="/new-camp">
                         Adicione o seu acampamento.
                     </Link>
                 </p>
