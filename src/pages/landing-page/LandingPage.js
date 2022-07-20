@@ -24,7 +24,7 @@ const LandingPage = () => {
 
                 <div className={styles.container__presentation_content}>
 
-                    <div>
+                    <div className={styles.container__presentation_logo}>
 
                         <Logo link="/" />
 
@@ -38,7 +38,8 @@ const LandingPage = () => {
                         YelpCamp é uma lista com curadoria dos melhores pontos de acampamento do planeta. Viva as melhores experiências ao ar livre.
                     </p>
 
-                    <ul>
+                    <ul className={styles.container__presentation_services}>
+
                         <li>
                             <img
                                 src={iconCheck}
@@ -76,26 +77,32 @@ const LandingPage = () => {
                     />
 
                     <ul className={styles.partners}>
-                        <li>
-                            <img
-                                src={logoAirbnb}
-                                alt="ícone Airbnb"
-                            />
-                        </li>
 
-                        <li>
-                            <img
-                                src={logoBooking}
-                                alt="ícone Booking"
-                            />
-                        </li>
+                        <p>Empresas Parceiras: </p>
 
-                        <li>
-                            <img
-                                src={logoPlum}
-                                alt="ícone Plum Guide"
-                            />
-                        </li>
+                        <div>
+                            <li>
+                                <img
+                                    src={logoAirbnb}
+                                    alt="ícone Airbnb"
+                                />
+                            </li>
+
+                            <li>
+                                <img
+                                    src={logoBooking}
+                                    alt="ícone Booking"
+                                />
+                            </li>
+
+                            <li>
+                                <img
+                                    src={logoPlum}
+                                    alt="ícone Plum Guide"
+                                />
+                            </li>
+                        </div>
+
                     </ul>
 
                 </div>

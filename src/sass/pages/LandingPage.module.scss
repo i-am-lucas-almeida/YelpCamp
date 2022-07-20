@@ -3,6 +3,7 @@
 
 .container{
     @include container-configs;
+    
     height: 100vh;
     display: flex;
     align-items: flex-start;
@@ -29,32 +30,38 @@
 
 .container__presentation{
     width: 60%;
+    height: 100%;
     padding: 3rem 0;
+    overflow-y: scroll;
+
+    &::-webkit-scrollbar{
+        display: none;
+    }
 
     .container__presentation_content{
         margin: 0 auto;
         max-width: 100%;
         width: 50rem;
 
-        div{
+        .container__presentation_logo{
             margin-bottom: 5rem;
         }
     }
 
     h1{
-        margin-bottom: 1rem;
+        margin-bottom: 2rem;
         font-size: 5rem;
         font-weight: 700;
     }
 
     p{
         color: $gray;
-        font-size: 1.5rem;
+        font-size: 1.8rem;
         line-height: 2.5rem;
     }
 
-    ul{
-        margin: 2rem 0;
+    .container__presentation_services{
+        margin: 3rem 0;
 
         li{
             margin-bottom: 1rem;
@@ -63,13 +70,33 @@
 
             img{
                 margin-right: 1rem;
+                width: 2rem;
+            }
+
+            p{
+                font-size: 1.6rem;
             }
         }
     }
 
     .partners{
-        display: flex;
-        align-items: center;
+        margin-top: 5rem;
+
+        p{
+            color: $gray;
+            font-size: 1.6rem;
+            font-weight: 400;
+        }
+        
+        div{
+            display: flex;
+            align-items: center;
+
+            li>img{
+                width: 15rem;
+            }
+        }
+
     }
 
     @include desktop-size() {
@@ -80,9 +107,20 @@
 
         .container__presentation_content{
             width: 100%;
+            height: 100%;
 
-            div{
-                display: none;
+            .container__presentation_logo{
+                display: none !important;
+            }
+
+            p{
+                max-width: 100%;
+                width: 70rem;
+                font-size: 1.6rem;
+
+                @include tablet-size{
+                    width: 100%;
+                }
             }
         }
 
@@ -95,6 +133,16 @@
         }
 
     }
+
+    @media(max-width: 450px) {
+
+        .partners{
+            div{
+                flex-wrap: wrap;
+            }
+        }
+
+    }
 }
 
 .container__image{
@@ -104,13 +152,24 @@
     background-position: center center;
     background-size: cover;
     background-repeat: no-repeat;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    top: 0;
 
     @include desktop-size() {
 
+        position: static;
         width: 100%;
-        height: 30rem;
+        height: 40rem;
         background-image: url(../../assets/Hero-image-tablet.jpg);
         order: 1;
+
+    }
+
+    @include tablet-size() {
+
+        height: 30rem;
 
     }
 }
