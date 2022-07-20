@@ -1,19 +1,6 @@
 @import '../variables.scss';
+@import '../mixins.scss';
 
 .button{
-    background-color: $black;
-    color: $white;
-    font-family: inherit;
-    font-size: 1.4rem;
-    font-weight: 600;
-    border: 1.5px solid $black;
-    border-radius: .5rem;
-    padding: 1.5rem;
-    cursor: pointer;
-    transition: .3s;
-
-    &:hover{
-        background-color: $white;
-        color: $black;
-    }
+    @include button-style;
 }
