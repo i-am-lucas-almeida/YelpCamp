@@ -1,15 +1,20 @@
 import styles from "../sass/components/Navbar.module.scss";
 
+import { Link } from "react-router-dom";
+
 import { useAuthentication } from "../hooks/useAuthentication";
 import { userAuthValue } from "../context/AuthContext";
 
 import Logo from "../components/Logo";
-import { Link } from "react-router-dom";
+import { TbLogout } from "react-icons/tb";
+
 import LinkButton from "./LinkButton";
 
 const Navbar = () => {
 
     const { user } = userAuthValue();
+
+    const { logoutUser } = useAuthentication();
 
     return (
 
@@ -40,13 +45,17 @@ const Navbar = () => {
 
                 {user && (
 
-                    <>
+                    <div>
 
                         <p>usuário</p>
 
-                        <p>logout</p>
+                        <button onClick={logoutUser}
+                            className={styles.navbar__auth_logout}>
+                            <span>sair</span>
+                            <TbLogout />
+                        </button>
 
-                    </>
+                    </div>
 
                 )}
 
