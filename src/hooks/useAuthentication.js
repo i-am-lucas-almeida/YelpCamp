@@ -50,22 +50,67 @@ export const useAuthentication = () => {
 
         } catch (error) {
 
-            console.log(error.message);
-
             let systemErrorMessage;
 
             if (error.message.includes("email-already")) {
 
-                systemErrorMessage = "Email já cadastrado!";
+                systemErrorMessage = "Email já cadastrado.";
 
             } else {
 
-                systemErrorMessage = "Ocorreu um erro, por favor, tente novamente.";
+                systemErrorMessage = "Ocorreu algum erro, tente novamente.";
 
             }
 
             setError(systemErrorMessage);
 
+            setLoading(false);
+
+        }
+
+    };
+
+    const logoutUser = () => {
+
+        checkIfIsCancelled();
+
+        signOut(auth);
+
+        return { logoutUser };
+
+    };
+
+    const loginUser = async (data) => {
+
+        checkIfIsCancelled();
+
+        setLoading(true);
+        setError(false);
+
+        try {
+
+            await signInWithEmailAndPassword(auth, data.email, data.password);
+            setLoading(false);
+
+        } catch (error) {
+
+            let systemErrorMessage;
+
+            if (error.message.includes("user-not-found")) {
+
+                systemErrorMessage = "Usuário não existe.";
+
+            } else if (error.message.includes("wrong-password")) {
+
+                systemErrorMessage = "Senha incorreta.";
+
+            } else {
+
+                systemErrorMessage = "Ocorreu algum erro, tente novamente.";
+
+            }
+
+            setError(systemErrorMessage);
             setLoading(false);
 
         }
@@ -81,6 +126,8 @@ export const useAuthentication = () => {
     return {
         auth,
         createUser,
+        loginUser,
+        logoutUser,
         error,
         loading
     };
