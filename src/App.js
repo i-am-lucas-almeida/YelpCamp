@@ -15,6 +15,7 @@ import Login from "./pages/login/Login";
 import RegisterCamp from "./pages/register-camp/RegisterCamp";
 
 import ScrollToTop from "./utils/ScrollToTop";
+import { PageLoading } from "./components/Loading";
 
 const App = () => {
 
@@ -35,7 +36,7 @@ const App = () => {
 
   if (loadingUser) {
 
-    return <p>Carregando...</p>;
+    return <PageLoading />;
 
   }
 
@@ -53,11 +54,11 @@ const App = () => {
           <Route path="/home" element={<Home />} />
           <Route
             path="/signup"
-            element={user ? <Navigate to="/" /> : <Register />}
+            element={user ? <Navigate to="/home" /> : <Register />}
           />
           <Route
             path="/login"
-            element={user ? <Navigate to="/" /> : <Login />}
+            element={user ? <Navigate to="/home" /> : <Login />}
           />
           <Route
             path="/new-camp"
