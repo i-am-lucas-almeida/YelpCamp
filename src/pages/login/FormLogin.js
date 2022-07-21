@@ -2,7 +2,14 @@ import styles from "../../sass/pages/FormSection.module.scss";
 
 import { useState } from "react";
 
+import { useAuthentication } from "../../hooks/useAuthentication";
+
+import { BsExclamationCircleFill as Error } from "react-icons/bs";
+import { FormLoading } from "../../components/Loading";
+
 const FormLogin = () => {
+
+    const { loginUser, error: authError, loading } = useAuthentication();
 
     const initialValues = {
         email: "",
@@ -58,15 +65,16 @@ const FormLogin = () => {
 
     const errors = validate();
 
-    function onSubmit(e) {
+    async function onSubmit(e) {
 
         e.preventDefault();
 
         if ((!errors.email) &&
             (!errors.password)) {
 
-            console.log(formData);
-            setFormData(initialValues);
+            const res = await loginUser(formData);
+
+            console.log(res);
 
         }
 
@@ -75,6 +83,12 @@ const FormLogin = () => {
     return (
 
         <form onSubmit={onSubmit} className={styles.container__form}>
+
+            {authError &&
+                <p className={styles.container__form_error}>
+                    {authError}
+                </p>
+            }
 
             <fieldset>
 
@@ -92,7 +106,7 @@ const FormLogin = () => {
                     className={errors.email ? styles.error : ""}
                 />
 
-                {errors.email && <small>{errors.email}</small>}
+                {errors.email && <small><Error />{errors.email}</small>}
 
             </fieldset>
 
@@ -115,15 +129,26 @@ const FormLogin = () => {
                     className={errors.password ? styles.error : ""}
                 />
 
-                {errors.password && <small>{errors.password}</small>}
+                {errors.password && <small><Error />{errors.password}</small>}
 
             </fieldset>
 
-            <button
-                type="submit"
-                className={styles.container__form_button}>
-                Entrar
-            </button>
+            {!loading &&
+                <button
+                    type="submit"
+                    className={styles.container__form_button}>
+                    Entrar
+                </button>
+            }
+
+            {loading &&
+                <button
+                    type="submit"
+                    className={styles.container__form_loading}
+                    disabled>
+                    <FormLoading />
+                </button>
+            }
 
         </form >
 
