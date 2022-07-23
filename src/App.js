@@ -13,6 +13,8 @@ import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import RegisterCamp from "./pages/register-camp/RegisterCamp";
+import CampDetails from "./pages/camp-details/CampDetails";
+import Search from "./pages/search/Search";
 
 import ScrollToTop from "./utils/ScrollToTop";
 import { PageLoading } from "./components/Loading";
@@ -64,6 +66,8 @@ const App = () => {
             path="/new-camp"
             element={user ? <RegisterCamp /> : <Navigate to="/login" />}
           />
+          <Route path="/camp/:id" element={<CampDetails />} />
+          <Route path="/search" element={<Search />} />
 
         </Routes>
 
