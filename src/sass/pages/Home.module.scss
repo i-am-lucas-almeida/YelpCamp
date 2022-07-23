@@ -1,85 +1,21 @@
 @import '../variables.scss';
 @import '../mixins.scss';
 
-.search{
-    margin-bottom: 5rem;
-    background-color: $pale-red;
-    padding: 5rem 3rem;
-    border-radius: .5rem;
+.list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    row-gap: 2rem;
+    column-gap: 2rem;
 
-    .search__content{
-        max-width: 100%;
-        width: 35rem;
+    @include desktop-size() {
 
-        h2{
-            margin-bottom: 1rem;
-            font-weight: 700;
-        }
+        grid-template-columns: repeat(2, 1fr);
 
-        p{
-            margin-bottom: 2rem;
-            color: $gray;
-            line-height: 2.5rem;
-        }
+    }
 
-        .search__form{
-            margin-bottom: 1rem;
-            display: flex;
-            align-items: center;
+    @include tablet-size() {
 
-            fieldset{
-                margin-right: 1rem;
-                background-color: $white;
-                border: 1.5px solid rgba($gray, .5);
-                border-radius: .5rem;
-                display: flex;
-                align-items: center;
-                overflow: hidden;
-                padding-left: 1.5rem;
+        grid-template-columns: repeat(1, 1fr);
 
-                input{
-                    background-color: $white;
-                    width: 18rem;
-                    padding: 1.5rem 0;
-                    border: none;
-                    outline: none;
-                    color: $black;
-                    font-family: inherit;
-                    font-size: 1.4rem;
-                    cursor: pointer;
-                    caret-color: $red;
-
-                    &::placeholder{
-                        color: $gray;
-                        font-weight: 400;
-                    }
-                }
-
-                img{
-                    padding-right: 1rem;
-                }
-    
-            }
-
-            button{
-                @include button-style;
-                padding: 1.5rem;
-            
-                &:hover{
-                    background-color: $white;
-                    color: $black;
-                }
-            }
-
-        }
-
-        p > a{
-            color: $gray;
-            text-decoration: underline;
-
-            &:hover{
-                text-decoration: none;
-            }
-        }
     }
 }
