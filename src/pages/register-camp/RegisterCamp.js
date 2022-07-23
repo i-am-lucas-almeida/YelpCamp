@@ -1,10 +1,31 @@
+import styles from "../../sass/pages/RegisterCamp.module.scss";
+
+import Container from "../../components/Container";
+import Navbar from "../../components/Navbar";
+import Footer from "../../components/Footer";
+import FormRegisterCamp from "./FormRegisterCamp";
+
 const RegisterCamp = () => {
 
     return (
 
-        <>
-            <p>Registre um novo Camp</p>
-        </>
+        <Container>
+
+            <Navbar />
+
+            <div className={styles.container__form}>
+
+                <h1 className={styles.container__form_title}>
+                    Adicione um novo Acampamento
+                </h1>
+
+                <FormRegisterCamp />
+
+            </div>
+
+            <Footer />
+
+        </Container>
 
     );
 
