@@ -22,18 +22,22 @@ const FormRegisterCamp = () => {
         name: "",
         price: "",
         image: "",
+        location: "",
+        website: "",
         description: "",
         touched: {
             name: false,
             price: false,
             image: false,
+            location: false,
+            website: false,
             description: false
         }
     };
 
     const [formData, setFormData] = useState(initState);
 
-    const { name, price, image, description } = formData;
+    const { name, price, image, location, website, description } = formData;
 
     function onChange(e) {
 
@@ -55,6 +59,8 @@ const FormRegisterCamp = () => {
             name: "",
             price: "",
             image: "",
+            location: "",
+            website: "",
             description: ""
         };
 
@@ -76,6 +82,12 @@ const FormRegisterCamp = () => {
 
         }
 
+        if (formData.touched.location && formData.location.length < 10) {
+
+            errors.location = "Localização inválida.";
+
+        }
+
         if (formData.touched.image && formData.image.length === 0) {
 
             errors.image = "URL inválida.";
@@ -89,6 +101,22 @@ const FormRegisterCamp = () => {
                 errors.image = "";
             } catch {
                 errors.image = "URL inválida.";
+            }
+        }
+
+        if (formData.touched.website && formData.website.length === 0) {
+
+            errors.website = "URL inválida.";
+
+        }
+
+        if (formData.website) {
+
+            try {
+                new URL(formData.website);
+                errors.website = "";
+            } catch {
+                errors.website = "URL inválida.";
             }
         }
 
@@ -111,12 +139,16 @@ const FormRegisterCamp = () => {
         if ((!errors.name) &&
             (!errors.price) &&
             (!errors.image) &&
+            (!errors.location) &&
+            (!errors.website) &&
             (!errors.description)) {
 
             insertDocument({
                 name,
                 price,
                 image,
+                location,
+                website,
                 description,
                 uid: user.uid,
                 createdBy: user.displayName
@@ -155,25 +187,52 @@ const FormRegisterCamp = () => {
 
             </fieldset>
 
-            <fieldset>
+            <div className={styles.container__form_flex}>
 
-                <label>Preço</label>
+                <fieldset>
 
-                <input
-                    type="number"
-                    name="price"
-                    id="price"
-                    placeholder="R$149 / por dia"
-                    required
-                    value={price}
-                    onChange={onChange}
-                    onBlur={onBlur}
-                    className={errors.price ? styles.error : ""}
-                />
+                    <label>Preço</label>
 
-                {errors.price && <small><Error />{errors.price}</small>}
+                    <input
+                        type="number"
+                        name="price"
+                        id="price"
+                        placeholder="R$49 / por dia"
+                        required
+                        value={price}
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        className={errors.price ? styles.error : ""}
+                    />
 
-            </fieldset>
+                    {errors.price && <small><Error />{errors.price}</small>}
+
+                </fieldset>
+
+                <fieldset>
+
+                    <label>Localização</label>
+
+                    <input
+                        type="text"
+                        name="location"
+                        id="location"
+                        placeholder="Barra Mansa - RJ"
+                        maxLength={30}
+                        minLength={10}
+                        size={30}
+                        required
+                        value={location}
+                        onChange={onChange}
+                        onBlur={onBlur}
+                        className={errors.location ? styles.error : ""}
+                    />
+
+                    {errors.location && <small><Error />{errors.location}</small>}
+
+                </fieldset>
+
+            </div>
 
             <fieldset>
 
@@ -183,7 +242,7 @@ const FormRegisterCamp = () => {
                     type="text"
                     name="image"
                     id="image"
-                    placeholder="www.unsplash.com/imagem/parque-da-cachoeira"
+                    placeholder="www.imagens.com/parques/parque-da-cachoeira"
                     minLength={10}
                     size={10}
                     required
@@ -206,15 +265,38 @@ const FormRegisterCamp = () => {
 
             <fieldset>
 
+                <label>Website</label>
+
+                <input
+                    type="text"
+                    name="website"
+                    id="website"
+                    placeholder="www.parques.com.br"
+                    maxLength={30}
+                    minLength={10}
+                    size={30}
+                    required
+                    value={website}
+                    onChange={onChange}
+                    onBlur={onBlur}
+                    className={errors.website ? styles.error : ""}
+                />
+
+                {errors.website && <small><Error />{errors.website}</small>}
+
+            </fieldset>
+
+            <fieldset>
+
                 <label>Descrição</label>
 
                 <textarea
                     name="description"
                     id="description"
                     placeholder="Escreva uma descrição"
-                    maxLength={500}
-                    minLength={200}
-                    size={200}
+                    maxLength={800}
+                    minLength={400}
+                    size={400}
                     required
                     value={description}
                     onChange={onChange}
