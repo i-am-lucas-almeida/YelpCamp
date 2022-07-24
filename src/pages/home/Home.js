@@ -37,7 +37,7 @@ const Home = () => {
 
                 ))}
 
-                {data.length < 0 &&
+                {data.length === 0 &&
                     <h2>Nenhum acampamento cadastrado.</h2>
                 }
 
