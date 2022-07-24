@@ -6,13 +6,22 @@
     max-width: 100%;
     width: 50rem;
 
-    .container__form_title{
+    .container__form_flex {
+        display: flex;
+        justify-content: space-between;
+
+        fieldset:first-child {
+            margin-right: 2rem;
+        }
+    }
+
+    .container__form_title {
         margin-bottom: 5rem;
         font-size: 4rem;
         font-weight: 700;
     }
 
-    .container__form_error{
+    .container__form_error {
         width: 100%;
         margin-bottom: 2rem;
         background-color: rgba($red, .15);
@@ -24,13 +33,13 @@
         text-align: center;
     }
 
-    fieldset{
+    fieldset {
 
         border: none;
         margin-bottom: 2rem;
         position: relative;
 
-        small{
+        small {
             display: flex;
             align-items: center;
             position: absolute;
@@ -39,17 +48,18 @@
             color: $soft-red;
             font-weight: 500;
 
-            svg{
+            svg {
                 margin-right: .2rem;
             }
         }
 
-        label{
+        label {
             font-size: 1.5rem;
             font-weight: 600;
         }
 
-        input, .textarea{
+        input,
+        .textarea {
             margin-top: 1rem;
             background-color: $soft-gray;
             border: none;
@@ -63,12 +73,12 @@
             font-size: 1.5rem;
             caret-color: $soft-red;
 
-            &:focus{
+            &:focus {
                 border-color: $gray;
             }
         }
 
-        .textarea{
+        .textarea {
             resize: none;
             height: 15rem;
             overflow-y: auto;
@@ -79,10 +89,10 @@
             -webkit-appearance: none;
             margin: 0;
         }
-    
+
     }
 
-    .container__form_image{
+    .container__form_image {
         display: flex;
         align-items: center;
         margin-top: 2rem;
@@ -90,7 +100,7 @@
         width: 15rem;
         height: 15rem;
 
-        img{
+        img {
             margin-left: 2rem;
             background-color: $soft-gray;
             width: 100%;
@@ -98,39 +108,39 @@
         }
     }
 
-    .container__form_button{
+    .container__form_button {
         @include button-style;
         width: 100%;
         margin: 2rem 0;
         font-size: 1.5rem
     }
 
-    .container__form_loading{
+    .container__form_loading {
         @include button-style;
         width: 100%;
         margin: 2rem 0;
 
-        &:hover{
+        &:hover {
             background-color: $black;
         }
     }
 
-    .error{
-        border-color: $soft-red !important;
+    .error {
+        border-color: $soft-red  !important;
     }
 
-    .error::placeholder{
-        color: $soft-red !important;
+    .error::placeholder {
+        color: $soft-red  !important;
     }
 }
 
-.container__answer{
-    a{
+.container__answer {
+    a {
         color: $blue;
         font-weight: 600;
         text-decoration: underline;
 
-        &:hover{
+        &:hover {
             text-decoration: none;
         }
     }
