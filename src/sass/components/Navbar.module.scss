@@ -1,35 +1,40 @@
 @import '../variables.scss';
 @import '../mixins.scss';
 
-.navbar{
+.navbar {
     margin-bottom: 2rem;
     padding: 3rem 0;
     display: flex;
     align-items: center;
     justify-content: space-between;
 
-    .navbar__auth{
+    .navbar__auth {
         display: flex;
         align-items: center;
 
-        div{
+        div {
             display: flex;
             align-items: center;
         }
 
-        .navbar__auth_login{
+        .navbar__auth_login {
             color: $gray;
             margin-right: 2.5rem;
 
-            &:hover{
+            &:hover {
                 text-decoration: underline;
             }
         }
 
-        .navbar__auth_name{
+        .navbar__auth_name {
+            color: $black;
             font-weight: 600;
 
-            @include mobile-size{
+            &:hover {
+                text-decoration: underline;
+            }
+
+            @include mobile-size {
                 max-width: 10rem;
                 overflow: hidden;
                 white-space: nowrap;
@@ -37,8 +42,8 @@
             }
         }
 
-        .navbar__auth_logout{
-            margin-left: 2rem;
+        .navbar__auth_logout {
+            margin-left: 3rem;
             display: flex;
             align-items: center;
             background-color: transparent;
@@ -50,11 +55,11 @@
             cursor: pointer;
             transition: .3s;
 
-            &:hover{
-                color: $red !important;
+            &:hover {
+                color: $red  !important;
             }
 
-            span{
+            span {
                 margin-right: .5rem;
             }
         }
