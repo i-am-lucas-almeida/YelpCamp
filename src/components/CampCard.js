@@ -29,7 +29,7 @@ const CampCard = ({ id, name, image, description }) => {
 
                     <button className={styles.card__button}>
 
-                        Ver Camp
+                        Ver detalhes
 
                     </button>
 
