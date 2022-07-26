@@ -15,6 +15,7 @@ import Login from "./pages/login/Login";
 import RegisterCamp from "./pages/register-camp/RegisterCamp";
 import CampDetails from "./pages/camp-details/CampDetails";
 import Search from "./pages/search/Search";
+import Dashboard from "./pages/dashboard/Dashboard";
 
 import ScrollToTop from "./utils/ScrollToTop";
 import { PageLoading } from "./components/Loading";
@@ -66,6 +67,9 @@ const App = () => {
             path="/new-camp"
             element={user ? <RegisterCamp /> : <Navigate to="/login" />}
           />
+          <Route
+            path="/dashboard"
+            element={user ? <Dashboard /> : <Navigate to="/login" />} />
           <Route path="/camp/:id" element={<CampDetails />} />
           <Route path="/search" element={<Search />} />
 
