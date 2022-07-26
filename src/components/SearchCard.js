@@ -1,7 +1,7 @@
 import styles from "../sass/components/SearchCard.module.scss";
 
 import { Link, useNavigate } from "react-router-dom";
-import { useState } from "react";
+import { useState, useRef } from "react";
 
 import iconSearch from "../assets/Search-Icon.svg";
 
@@ -10,6 +10,7 @@ const SearchCard = () => {
     const navigate = useNavigate();
 
     const [query, setQuery] = useState("");
+    const inputRef = useRef();
 
     function onChange(e) {
 
@@ -25,6 +26,8 @@ const SearchCard = () => {
 
             return navigate(`/search?q=${query}`);
 
+        } else {
+            inputRef.current.focus();
         }
 
     }
@@ -53,6 +56,7 @@ const SearchCard = () => {
                         />
 
                         <input
+                            ref={inputRef}
                             type="text"
                             name="query"
                             id="query"

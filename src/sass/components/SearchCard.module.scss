@@ -9,10 +9,11 @@
 
     .search__content {
         max-width: 100%;
-        width: 35rem;
+        width: 40rem;
 
         h2 {
             margin-bottom: 1rem;
+            font-size: 3rem;
             font-weight: 700;
         }
 
@@ -23,7 +24,7 @@
         }
 
         .search__form {
-            margin-bottom: 1rem;
+            margin-bottom: 1.5rem;
             display: flex;
             align-items: center;
 
@@ -53,6 +54,7 @@
                         color: $gray;
                         font-weight: 400;
                     }
+
                 }
 
                 img {
