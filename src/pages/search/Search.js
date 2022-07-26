@@ -1,10 +1,11 @@
-import styles from "../../sass/pages/Search.module.scss";
+import "../../sass/pages/Search.scss";
 
 import Container from "../../components/Container";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
 import SearchCard from "../../components/SearchCard";
 import CampCard from "../../components/CampCard";
+import ListCards from "../../components/ListCards";
 
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 import { useQuery } from "../../hooks/useQuery";
@@ -48,7 +49,7 @@ const Search = () => {
                 (<h2>Encontramos {filterData(data).length} resultado{`${filterData(data).length === 1 ? "" : "s"}`} para {`"${search}"`}</h2>)
             }
 
-            <ul className={styles.list}>
+            <ListCards>
 
                 {filterData(data).length > 0 && filterData(data).map((item) => (
 
@@ -59,7 +60,7 @@ const Search = () => {
 
                 ))}
 
-            </ul>
+            </ListCards>
 
             <Footer />
 
