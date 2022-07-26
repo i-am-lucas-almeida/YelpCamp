@@ -47,9 +47,11 @@ const Navbar = () => {
 
                     <div>
 
-                        <p className={styles.navbar__auth_name}>
-                            {user.displayName}
-                        </p>
+                        <Link to="/dashboard">
+                            <p className={styles.navbar__auth_name}>
+                                {user.displayName}
+                            </p>
+                        </Link>
 
                         <button onClick={logoutUser}
                             className={styles.navbar__auth_logout}>
