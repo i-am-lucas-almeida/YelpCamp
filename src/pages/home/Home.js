@@ -1,5 +1,3 @@
-import styles from "../../sass/pages/Home.module.scss";
-
 import { useFetchDocuments } from "../../hooks/useFetchDocuments";
 
 import Container from "../../components/Container";
@@ -9,6 +7,7 @@ import SearchCard from "../../components/SearchCard";
 import CampCard from "../../components/CampCard";
 
 import { PageLoading } from "../../components/Loading";
+import ListCards from "../../components/ListCards";
 
 const Home = () => {
 
@@ -26,7 +25,7 @@ const Home = () => {
 
             {error && <p>{error}</p>}
 
-            <ul className={styles.list}>
+            <ListCards>
 
                 {data.length > 0 && data.map((item) => (
 
@@ -41,7 +40,7 @@ const Home = () => {
                     <h2>Nenhum acampamento cadastrado.</h2>
                 }
 
-            </ul>
+            </ListCards>
 
             <Footer />
 
