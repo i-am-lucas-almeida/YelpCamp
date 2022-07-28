@@ -1,6 +1,10 @@
 import styles from "../../sass/pages/CampDetails.module.scss";
 
+import usePageTitle from "../../utils/usePageTitle";
+
 const DetailsSection = ({ name, image, price, website, location, description }) => {
+
+    usePageTitle(`YelpCamp | ${name || ""}`);
 
     return (
 
