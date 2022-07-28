@@ -2,11 +2,15 @@ import styles from "../../sass/pages/FormSection.module.scss";
 
 import { Link } from "react-router-dom";
 
+import usePageTitle from "../../utils/usePageTitle";
+
 import TestimonialSection from "../../components/TestimonialSection";
 import NavbarForm from "../../components/NavbarForm";
 import FormLogin from "./FormLogin";
 
 const Login = () => {
+
+    usePageTitle("YelpCamp | Entrar");
 
     return (
 
