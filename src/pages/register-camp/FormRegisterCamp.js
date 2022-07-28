@@ -1,4 +1,3 @@
-/* eslint-disable no-useless-escape */
 import styles from "../../sass/pages/RegisterCamp.module.scss";
 
 import { useState } from "react";
