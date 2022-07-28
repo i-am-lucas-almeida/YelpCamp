@@ -1,11 +1,15 @@
 import styles from "../../sass/pages/RegisterCamp.module.scss";
 
+import usePageTitle from "../../utils/usePageTitle";
+
 import Container from "../../components/Container";
 import Navbar from "../../components/Navbar";
 import Footer from "../../components/Footer";
 import FormRegisterCamp from "./FormRegisterCamp";
 
 const RegisterCamp = () => {
+
+    usePageTitle("YelpCamp | Criar um novo camp");
 
     return (
 
