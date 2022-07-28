@@ -1,6 +1,7 @@
 import styles from "../../sass/pages/LandingPage.module.scss";
 
 import LinkButton from "../../components/LinkButton";
+import usePageTitle from "../../utils/usePageTitle";
 
 import iconCheck from "../../assets/Checkmark.svg";
 import logoAirbnb from "../../assets/Partners/Airbnb.svg";
@@ -9,6 +10,8 @@ import logoPlum from "../../assets/Partners/Plum.svg";
 import Logo from "../../components/Logo";
 
 const LandingPage = () => {
+
+    usePageTitle("YelpCamp | Camping para todos");
 
     return (
 
