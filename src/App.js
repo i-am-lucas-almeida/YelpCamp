@@ -13,6 +13,7 @@ import Home from "./pages/home/Home";
 import Register from "./pages/register/Register";
 import Login from "./pages/login/Login";
 import RegisterCamp from "./pages/register-camp/RegisterCamp";
+import EditCamp from "./pages/edit-camp/EditCamp";
 import CampDetails from "./pages/camp-details/CampDetails";
 import Search from "./pages/search/Search";
 import Dashboard from "./pages/dashboard/Dashboard";
@@ -70,6 +71,10 @@ const App = () => {
           <Route
             path="/dashboard"
             element={user ? <Dashboard /> : <Navigate to="/login" />} />
+          <Route
+            path="/edit-camp/:id"
+            element={user ? <EditCamp /> : <Navigate to="/login" />}
+          />
           <Route path="/camp/:id" element={<CampDetails />} />
           <Route path="/search" element={<Search />} />
 
