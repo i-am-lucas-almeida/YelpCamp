@@ -1,5 +1,6 @@
 import "../../sass/pages/Dashboard.scss";
 
+import usePageTitle from "../../utils/usePageTitle";
 import Container from "../../components/Container";
 import Footer from "../../components/Footer";
 import { PageLoading } from "../../components/Loading";
@@ -14,11 +15,11 @@ import LinkButton from "../../components/LinkButton";
 
 const Dashboard = () => {
 
+    usePageTitle("YelpCamp | Painel do usuário");
+
     const { user } = userAuthValue();
     const uid = user.uid;
     const { documents: data, loading } = useFetchDocuments("camps", uid);
-
-    console.log(uid);
 
     return (
 
