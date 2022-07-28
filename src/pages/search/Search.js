@@ -1,5 +1,7 @@
 import "../../sass/pages/Search.scss";
 
+import usePageTitle from "../../utils/usePageTitle";
+
 import Container from "../../components/Container";
 import Footer from "../../components/Footer";
 import Navbar from "../../components/Navbar";
@@ -15,6 +17,8 @@ const Search = () => {
 
     const query = useQuery();
     const search = query.get("q");
+
+    usePageTitle(`YelpCamp | ${search || ""}`);
 
     const { documents: data, error, loading } = useFetchDocuments("camps");
 
