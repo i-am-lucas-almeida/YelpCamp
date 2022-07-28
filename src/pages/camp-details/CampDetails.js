@@ -16,8 +16,6 @@ const CampDetails = () => {
 
     const { document: data, error, loading } = useFetchCamp("camps", id);
 
-    console.log(data);
-
     return (
 
         <Container>
