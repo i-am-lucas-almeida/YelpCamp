@@ -1,19 +1,16 @@
 # [YelpCamp | Camping para todos](https://yelpcampings.vercel.app/)
 
-Registre e conheça acampamentos de todo o mundo.
+### Registre e conheça acampamentos de todo o mundo.
+<br>
 
-<div style="display: block; margin: 0 auto;">
+![Imagem da Landing page](https://user-images.githubusercontent.com/77863766/181653583-40d158b4-0837-45d6-ad01-b2f46b8f0fa0.png "Imagem da Landing Page")
+Landing Page
 
-![Imagem da Landing page](https://user-images.githubusercontent.com/77863766/181653583-40d158b4-0837-45d6-ad01-b2f46b8f0fa0.png)
-<p style="text-align: center;">Landing Page</p>
+![Imagem da Home](https://user-images.githubusercontent.com/77863766/181653571-ce1329db-9006-4d51-84a0-11100480e5c8.png "Imagem da Home")
+Página Principal
 
-![Imagem da Home](https://user-images.githubusercontent.com/77863766/181653571-ce1329db-9006-4d51-84a0-11100480e5c8.png)
-<p style="text-align: center;">Página Principal</p>
-
-![Imagem da Register page](https://user-images.githubusercontent.com/77863766/181653579-7edc935f-f7e8-46ce-8ab3-024e80961e71.png)
-<p style="text-align: center;">Página de cadastro</p>
-
-</div>
+![Imagem da Register page](https://user-images.githubusercontent.com/77863766/181653579-7edc935f-f7e8-46ce-8ab3-024e80961e71.png "Imagem da página de registros")
+Página de cadastro
 
 ## ⚙️ Ferramentas Usadas
 
