@@ -11,6 +11,8 @@ import { PageLoading } from "../../components/Loading";
 
 import { BsExclamationCircleFill as Error } from "react-icons/bs";
 
+import { PriceMask } from "../../utils/PriceMask";
+
 const FormEditCamp = () => {
 
     const { id } = useParams();
@@ -56,6 +58,12 @@ const FormEditCamp = () => {
 
     }, [data]);
 
+    function onChange(e) {
+
+        setPrice(e.target.value);
+
+    }
+
     function onBlur(e) {
 
         const { name } = e.target;
@@ -80,13 +88,19 @@ const FormEditCamp = () => {
 
         }
 
-        if (formTouched.touched.price && price.length < 2) {
+        if (formTouched.touched.price && price === "") {
 
             errors.price = "Preço inválido.";
 
         }
 
-        if (formTouched.touched.price && price <= 0) {
+        if (formTouched.touched.price && parseFloat(price) < 1) {
+
+            errors.price = "Preço inválido.";
+
+        }
+
+        if (formTouched.touched.price && price.charAt(0) === "0") {
 
             errors.price = "Preço inválido.";
 
@@ -210,13 +224,16 @@ const FormEditCamp = () => {
                         <label>Preço</label>
 
                         <input
-                            type="number"
+                            type="text"
                             name="price"
                             id="price"
                             placeholder="R$49 / por dia"
+                            maxLength={8}
+                            minLength={5}
+                            size={8}
                             required
-                            value={price}
-                            onChange={(e) => setPrice(e.target.value)}
+                            value={price ? ("R$" + price) : price}
+                            onChange={(e) => onChange(PriceMask(e))}
                             onBlur={onBlur}
                             className={errors.price ? styles.error : ""}
                         />

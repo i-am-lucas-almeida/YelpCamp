@@ -9,6 +9,8 @@ import { useInsertDocument } from "../../hooks/useInsertDocument";
 
 import { BsExclamationCircleFill as Error } from "react-icons/bs";
 
+import { PriceMask } from "../../utils/PriceMask";
+
 const FormRegisterCamp = () => {
 
     const navigate = useNavigate();
@@ -69,13 +71,19 @@ const FormRegisterCamp = () => {
 
         }
 
-        if (formData.touched.price && formData.price.length < 2) {
+        if (formData.touched.price && formData.price === "") {
 
             errors.price = "Preço inválido.";
 
         }
 
-        if (formData.touched.price && formData.price <= 0) {
+        if (formData.touched.price && parseFloat(formData.price) < 1) {
+
+            errors.price = "Preço inválido.";
+
+        }
+
+        if (formData.touched.price && formData.price.charAt(0) === "0") {
 
             errors.price = "Preço inválido.";
 
@@ -193,13 +201,16 @@ const FormRegisterCamp = () => {
                     <label>Preço</label>
 
                     <input
-                        type="number"
+                        type="text"
                         name="price"
                         id="price"
                         placeholder="R$49 / por dia"
                         required
-                        value={price}
-                        onChange={onChange}
+                        maxLength={8}
+                        minLength={5}
+                        size={8}
+                        value={price ? ("R$" + price) : price}
+                        onChange={(e) => onChange(PriceMask(e))}
                         onBlur={onBlur}
                         className={errors.price ? styles.error : ""}
                     />
